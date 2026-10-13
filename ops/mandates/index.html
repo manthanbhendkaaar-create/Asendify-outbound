@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bank mandates · Asendify admin</title>
+<style>
+  :root { --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --brand:#4f46e5; --ok:#047857; --warn:#b45309; --bad:#b91c1c; --bg:#f9fafb; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; color:var(--ink); background:var(--bg); }
+  .wrap { max-width:980px; margin:0 auto; padding:24px 16px 60px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 20px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:14px; }
+  .row { display:flex; flex-wrap:wrap; gap:8px 16px; align-items:baseline; }
+  .name { font-weight:700; font-size:16px; }
+  .muted { color:var(--muted); font-size:13px; }
+  .pill { display:inline-block; font-size:12px; font-weight:600; padding:2px 8px; border-radius:999px; background:#eef2ff; color:var(--brand); }
+  .pill.ok { background:#ecfdf5; color:var(--ok); } .pill.warn { background:#fffbeb; color:var(--warn); } .pill.bad { background:#fef2f2; color:var(--bad); }
+  button { font:inherit; border:1px solid var(--line); background:#fff; border-radius:10px; padding:7px 12px; cursor:pointer; }
+  button.primary { background:var(--brand); color:#fff; border-color:var(--brand); font-weight:600; }
+  button:disabled { opacity:.6; cursor:default; }
+  input[type=number], input[type=text] { font:inherit; padding:7px 10px; border:1px solid #d1d5db; border-radius:10px; }
+  .charge { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:12px; padding-top:12px; border-top:1px dashed var(--line); }
+  .charge input[type=number] { width:120px; } .charge input[type=text] { flex:1 1 220px; min-width:0; }
+  .msg { font-size:13px; margin-top:8px; }
+  table { width:100%; border-collapse:collapse; margin-top:10px; font-size:13px; }
+  td, th { text-align:left; padding:6px 4px; border-top:1px solid var(--line); vertical-align:top; }
+  #gate { max-width:420px; }
+  label.agree { font-size:13px; display:flex; gap:6px; align-items:center; flex-basis:100%; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Bank mandates (Indian clients)</h1>
+  <p class="sub">Clients who set up an eNACH bank mandate while booking a call. Nothing is charged at booking. Charge only after the client has agreed the amount in writing. Amounts are entered in £ and debited in ₹ at today's rate. Bank debits take about 2–3 working days to complete.</p>
+  <div id="gate" class="card" hidden>
+    <p>Paste your admin key to open this page.</p>
+    <div class="row"><input id="keyIn" type="text" placeholder="Admin key" style="flex:1"><button class="primary" id="keyGo">Open</button></div>
+  </div>
+  <div id="top" class="row" style="margin-bottom:12px" hidden><button id="reload">Reload list</button><span class="muted" id="count"></span></div>
+  <div id="list"></div>
+</div>
+<script>
+(function () {
+  var FN = "https://pnokotvssodslxozepxe.supabase.co/functions/v1/mandate";
+  var key = "";
+  try { key = (location.hash.match(/k=([a-f0-9]{40})/) || [])[1] || sessionStorage.getItem("mk") || ""; } catch (e) { key = (location.hash.match(/k=([a-f0-9]{40})/) || [])[1] || ""; }
+  try { if (key) sessionStorage.setItem("mk", key); } catch (e) {}
+  if (location.hash) history.replaceState(null, "", location.pathname);
+
+  function api(body) {
+    body.key = key;
+    return fetch(FN, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json(); }).catch(function () { return { error: "Network error." }; });
+  }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function inr(n) { return "₹" + Number(n).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  // Charges above the mandate limit are split into several debits on the same mandate: the first today, each next one on the next working day (Mon-Fri, India time).
+  function inrShort(n) { n = Number(n); var f = function (x) { return Number(x.toFixed(2)).toLocaleString("en-IN", { maximumFractionDigits: 2 }); };
+    return n >= 1e7 ? "₹" + f(n / 1e7) + " crore" : n >= 1e5 ? "₹" + f(n / 1e5) + " lakh" : inr(n); }
+  function istToday() { var d = new Date(Date.now() + 330 * 60000); return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); }
+  function nextWorkingDay(d) { var n = new Date(d); do { n.setUTCDate(n.getUTCDate() + 1); } while (n.getUTCDay() === 0 || n.getUTCDay() === 6); return n; }
+  function wday(s) { return s ? new Date(String(s).slice(0, 10) + "T00:00:00Z").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" }) : "-"; }
+  function whenLabel(d) { var diff = Math.round((d - istToday()) / 86400000); return diff === 0 ? "today" : diff === 1 ? "tomorrow" : "on " + wday(d.toISOString()); }
+  function splitPlan(amount, max) {
+    amount = Number(amount); max = Number(max); if (!(max > 0) || amount <= max) return null;
+    var parts = [], left = amount, t = istToday(), d = (t.getUTCDay() === 0 || t.getUTCDay() === 6) ? nextWorkingDay(t) : t; // a weekend debit is processed on the next working day
+    while (left > max) { parts.push(max); left = Math.round((left - max) * 100) / 100; }
+    parts.push(left);
+    return parts.map(function (a, i) { if (i) d = nextWorkingDay(d); return inrShort(a) + " " + (i ? whenLabel(d) : "today"); }).join(" + ");
+  }
+  function day(s) { return s ? new Date(s).toLocaleString("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" }) : "-"; }
+  function tokPill(s) {
+    var cls = s === "confirmed" ? "ok" : (s === "rejected" || s === "cancelled" || s === "paused") ? "bad" : "warn";
+    var label = s === "confirmed" ? "Confirmed: ready to charge" : s ? "Bank status: " + s : "Waiting for bank";
+    return '<span class="pill ' + cls + '">' + esc(label) + "</span>";
+  }
+  function chPill(s, c) {
+    if (s === "scheduled") return '<span class="pill">Scheduled for ' + esc(wday(c && c.scheduled_for)) + "</span>";
+    var cls = s === "captured" ? "ok" : (s === "failed" || s === "cancelled") ? "bad" : "warn";
+    var label = s === "captured" ? "Paid" : s === "failed" ? "Failed" : s === "cancelled" ? "Cancelled" : "Processing";
+    return '<span class="pill ' + cls + '">' + label + "</span>";
+  }
+
+  var brands = {};
+  function load() {
+    document.getElementById("list").innerHTML = '<p class="muted">Loading…</p>';
+    api({ action: "admin_list" }).then(function (r) {
+      if (r.error) {
+        document.getElementById("list").innerHTML = "";
+        document.getElementById("top").hidden = true;
+        document.getElementById("gate").hidden = false;
+        if (key) document.getElementById("gate").insertAdjacentHTML("beforeend", '<p class="msg" style="color:var(--bad)">' + esc(r.error) + "</p>");
+        return;
+      }
+      brands = r.brands || {};
+      document.getElementById("gate").hidden = true;
+      document.getElementById("top").hidden = false;
+      document.getElementById("count").textContent = r.mandates.length + " mandate" + (r.mandates.length === 1 ? "" : "s");
+      if (!r.mandates.length) { document.getElementById("list").innerHTML = '<div class="card muted">No mandates yet. They appear here when an Indian client sets one up while booking.</div>'; return; }
+      document.getElementById("list").innerHTML = r.mandates.map(function (m) {
+        var cs = r.charges.filter(function (c) { return c.mandate_id === m.id; });
+        return '<div class="card" data-id="' + esc(m.id) + '" data-max="' + esc(m.max_inr) + '">' +
+          '<div class="row"><span class="name">' + esc(m.name) + "</span>" + (m.company ? '<span class="muted">' + esc(m.company) + "</span>" : "") +
+          '<span class="pill">' + esc(brands[m.brand] || m.brand) + "</span>" + tokPill(m.token_status) + "</div>" +
+          '<div class="row muted" style="margin-top:4px"><span>' + esc(m.email) + "</span><span>" + esc(m.contact) + "</span><span>Set up " + day(m.authorised_at || m.created_at) + "</span><span>Limit " + inr(m.max_inr) + " per debit</span></div>" +
+          (cs.length ? "<table><tr><th>Charge</th><th>£</th><th>₹</th><th>Status</th><th>When</th></tr>" + cs.map(function (c) {
+            return "<tr><td>" + esc(c.description) + (c.error ? '<div class="muted" style="color:var(--bad)">' + esc(c.error) + "</div>" : "") + "</td><td>£" + Number(c.amount_gbp).toFixed(2) +
+              "</td><td>" + inr(c.amount_inr) + "</td><td>" + chPill(c.status, c) + "</td><td>" + day(c.created_at) + "</td></tr>";
+          }).join("") + "</table>" : "") +
+          '<div class="charge"><button data-act="refresh">Check bank status</button>' +
+          '<input type="number" min="1" step="0.01" placeholder="£ amount" data-f="gbp"><input type="text" placeholder="What for (e.g. Growth Plan, October)" data-f="desc">' +
+          '<button data-act="quote">Show ₹</button><button class="primary" data-act="charge">Charge</button>' +
+          '<label class="agree"><input type="checkbox" data-f="agree"> The client agreed this amount in writing</label></div>' +
+          '<div class="msg" data-f="msg"></div></div>';
+      }).join("");
+    });
+  }
+
+  document.getElementById("list").addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-act]"); if (!btn) return;
+    var card = btn.closest(".card"), id = card.getAttribute("data-id");
+    var msg = card.querySelector('[data-f="msg"]');
+    var gbp = card.querySelector('[data-f="gbp"]').value, desc = card.querySelector('[data-f="desc"]').value.trim();
+    var say = function (t, bad) { msg.textContent = t; msg.style.color = bad ? "var(--bad)" : "var(--muted)"; };
+    var act = btn.getAttribute("data-act");
+    if (act === "refresh") {
+      btn.disabled = true; say("Checking…");
+      api({ action: "admin_refresh", mandate_id: id }).then(function (r) { btn.disabled = false; if (r.error) return say(r.error, true); load(); });
+    } else if (act === "quote") {
+      if (!(Number(gbp) > 0)) return say("Enter the £ amount first.", true);
+      btn.disabled = true;
+      api({ action: "admin_quote", amount_gbp: Number(gbp) }).then(function (r) {
+        btn.disabled = false; if (r.error) return say(r.error, true);
+        var plan = splitPlan(r.amount_inr, card.getAttribute("data-max"));
+        say("£" + Number(gbp).toFixed(2) + " = " + inr(r.amount_inr) + " at today's rate (" + r.rate.toFixed(2) + ")." +
+          (plan ? " That's above the " + inrShort(card.getAttribute("data-max")) + " mandate limit, so it will be split: " + plan + "." : ""));
+      });
+    } else if (act === "charge") {
+      if (!(Number(gbp) > 0)) return say("Enter the £ amount first.", true);
+      if (!desc) return say("Add what this charge is for.", true);
+      if (!card.querySelector('[data-f="agree"]').checked) return say("Tick the box once the client has agreed this amount in writing.", true);
+      var go = function () {
+        btn.disabled = true; say("Starting the debit…");
+        api({ action: "admin_charge", mandate_id: id, amount_gbp: Number(gbp), description: desc }).then(function (r) {
+          btn.disabled = false; btn.textContent = "Charge"; card.removeAttribute("data-confirm");
+          if (r.error && !r.ok) return say(r.error, true);
+          if (r.split) {
+            say("Split into " + r.debits.length + " debits: " + r.debits.map(function (x) { return inrShort(x.amount_inr) + (x.n === 1 ? " started today" : " scheduled for " + wday(x.date)); }).join(" + ") + "." +
+              (r.error ? " " + r.error : "") + " Each debit takes about 2–3 working days; use “Check bank status” to update.", !!r.error);
+          } else say("Debit of " + inr(r.amount_inr) + " started. It takes about 2–3 working days; use “Check bank status” to update it.");
+          setTimeout(load, 1500);
+        });
+      };
+      // Show the split before confirming when the amount is above the mandate limit.
+      if (card.getAttribute("data-confirm") === String(Number(gbp))) return go();
+      btn.disabled = true; say("Checking the amount…");
+      api({ action: "admin_quote", amount_gbp: Number(gbp) }).then(function (r) {
+        btn.disabled = false; if (r.error) return say(r.error, true);
+        var plan = splitPlan(r.amount_inr, card.getAttribute("data-max"));
+        if (!plan) return go();
+        card.setAttribute("data-confirm", String(Number(gbp))); btn.textContent = "Confirm split charge";
+        say(inr(r.amount_inr) + " is above the " + inrShort(card.getAttribute("data-max")) + " mandate limit, so it will be split: " + plan + ". Click “Confirm split charge” to start the first debit.");
+      });
+    }
+  });
+  document.getElementById("reload").addEventListener("click", load);
+  document.getElementById("keyGo").addEventListener("click", function () {
+    key = document.getElementById("keyIn").value.trim();
+    try { sessionStorage.setItem("mk", key); } catch (e) {}
+    load();
+  });
+  if (key) load(); else document.getElementById("gate").hidden = false;
+})();
+</script>
+</body>
+</html>

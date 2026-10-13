@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Done-for-You Cold Email Setup: Starter Package | Asendify Outbound</title>
+<meta name="description" content="We set up your cold email for you: 10 warmed sending inboxes, 4 domains, copy, 1,000 targeted leads and the first month managed. £1,395.80 + 45% service fee, one-time.">
+<link rel="canonical" href="https://outbound.asendify.co/done-for-you/">
+<meta property="og:title" content="Done-for-You Cold Email Setup | Asendify Outbound">
+<meta property="og:description" content="10 warmed inboxes, 4 domains, copy, 1,000 leads and the first month managed. One-time starter package.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Done-for-you cold email starter","provider":{"@type":"Organization","name":"Asendify","url":"https://www.asendify.co"},"url":"https://outbound.asendify.co/done-for-you/","offers":{"@type":"Offer","price":"2023.91","priceCurrency":"GBP","description":"£1,395.80 starter + 45% service fee (£628.11), one-time"}}</script>
+<style>
+.dfy{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start;margin-top:10px}
+.dfy ul{padding-left:20px;margin:10px 0}.dfy li{margin:7px 0}
+.pay table{width:100%;border-collapse:collapse;margin:8px 0 14px}.pay td{padding:8px 0;border-bottom:1px solid var(--line)}.pay td:last-child{text-align:right;font-weight:600}
+.pay tr.tot td{font-size:18px;font-weight:800;border-bottom:0}
+.pay label{display:block;font-weight:600;font-size:13px;margin-top:10px}.pay input{width:100%;margin-top:5px;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit}
+@media (max-width:760px){.dfy{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="/"><i></i>Asendify <span>Outbound</span></a>
+  <nav class="links"><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/app/">Log in</a><a class="btn btn-primary" href="/app/?signup=1">Start free trial</a></nav>
+</div></header>
+<div class="hero"><div class="wrap" style="max-width:1000px"><span class="pill">Done for you · starter package</span>
+<h1 style="font-size:clamp(30px,4.4vw,48px)">We set up your cold email. You get the replies.</h1>
+<p class="lead">Inboxes, domains, copy, leads and the first month of sending, handled by the team that runs outbound for its own agencies every day.</p>
+
+<div id="done" class="card" style="display:none;margin-top:18px"></div>
+
+<div class="dfy" id="main">
+  <div class="card">
+    <h3 style="margin-top:0">What's included</h3>
+    <ul>
+      <li><b>10 sending inboxes</b> set up on Google Workspace or Zoho and warmed up for you.</li>
+      <li><b>4 separate sending domains</b> with SPF, DKIM and DMARC, so your main domain is never at risk.</li>
+      <li><b>Your cold email copy:</b> a 3-step sequence written for your offer and ideal customer.</li>
+      <li><b>1,000 targeted leads</b> built to your ideal customer profile.</li>
+      <li><b>Launch and first month managed:</b> we run the campaign, watch deliverability and turn on the AI reply agent with your booking link.</li>
+    </ul>
+    <h3>Good to know</h3>
+    <ul>
+      <li>New inboxes need about 2 weeks of warm-up before full sending volume.</li>
+      <li>Domain and inbox costs are paid by you directly to the provider (domains are usually around $10-15 a year each; inboxes a few dollars a month each), so you own them.</li>
+      <li>Sending runs on Asendify Outbound. Your plan is billed separately (from £29/month + 45% service fee).</li>
+      <li>Need more volume or a bigger setup? Enterprise is currently at full capacity: <a href="/enterprise/" style="color:var(--brand);font-weight:600">join the waitlist or reserve the next slot</a> with a £500 refundable deposit.</li>
+    </ul>
+  </div>
+  <div class="card pay">
+    <h3 style="margin-top:0">Starter package</h3>
+    <table>
+      <tr><td>Done-for-you starter</td><td>£1,395.80</td></tr>
+      <tr><td>Service fee (45%)</td><td>£628.11</td></tr>
+      <tr class="tot"><td>Total, one-time</td><td>£2,023.91</td></tr>
+    </table>
+    <form id="f">
+      <label>Your name<input name="name" required autocomplete="name"></label>
+      <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Company<input name="company" autocomplete="organization"></label>
+      <label>Website<input name="website" placeholder="yourcompany.com"></label>
+      <button class="btn btn-primary btn-lg" style="width:100%;margin-top:16px" id="go">Pay £2,023.91 with PayPal</button>
+      <p class="small" id="msg" style="margin-top:10px">You'll see the full amount on PayPal before you confirm. Card payments work through PayPal too.</p>
+    </form>
+  </div>
+</div>
+</div></div>
+<section><div class="wrap article">
+<h2>How it works</h2>
+<ol style="padding-left:22px"><li>Pay for the starter package here.</li><li>We email you within 1 business day with a short form about your offer and ideal customer.</li><li>We buy nothing in your name without asking: you approve the domains and inboxes, we set them up and start the warm-up.</li><li>We write the copy, build your 1,000 leads and launch once the inboxes are warm, then manage the first month.</li></ol>
+</div></section>
+<script>
+const FN = "https://pnokotvssodslxozepxe.supabase.co/functions/v1/dfy";
+const call = (body) => fetch(FN, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then((r) => r.json()).catch(() => ({ error: "Network error. Please try again." }));
+const q = new URLSearchParams(location.search), msg = document.getElementById("msg");
+const done = (html) => { document.getElementById("main").style.display = "none"; const d = document.getElementById("done"); d.style.display = ""; d.innerHTML = html; };
+if (q.get("paid") && q.get("token")) {
+  done("<h3>Confirming your payment…</h3>");
+  call({ action: "capture", order_id: q.get("token") }).then((r) => {
+    history.replaceState(null, "", location.pathname);
+    done(r.ok ? "<h3>Payment received. Thank you!</h3><p>We'll email you within 1 business day to start your setup. Want to get ahead? Fill in <a href='/enterprise/' style='color:var(--brand);font-weight:600'>the short planning form</a> now.</p>"
+              : "<h3>We couldn't confirm the payment yet.</h3><p>If PayPal took the money, it will show up within a few minutes and we'll email you. Questions: reply to the PayPal receipt email.</p>");
+  });
+} else if (q.get("cancel")) { msg.textContent = "Checkout cancelled. No payment was taken."; }
+document.getElementById("f").onsubmit = async (e) => {
+  e.preventDefault(); const d = Object.fromEntries(new FormData(e.target)); const b = document.getElementById("go");
+  b.disabled = true; b.textContent = "Opening PayPal…"; msg.style.color = "";
+  const r = await call({ action: "checkout", ...d });
+  if (r.approve) { location.href = r.approve; return; }
+  b.disabled = false; b.textContent = "Pay £2,023.91 with PayPal"; msg.style.color = "var(--bad)"; msg.textContent = r.error || "Something went wrong. Please try again.";
+};
+</script>
+<footer><div class="wrap"><div><b style="color:var(--ink)">Asendify Outbound</b> · Cold email software by <a href="https://www.asendify.co">Asendify</a></div>
+<div style="display:flex;gap:10px 18px;flex-wrap:wrap"><a href="/best-cold-email-software/">Best cold email software</a><a href="/cold-email-software-pricing/">Cold email pricing</a><a href="/ai-reply-agent/">AI reply agent</a><a href="/cold-email-software-for-agencies/">For agencies</a><a href="/done-for-you/">Done-for-you</a><a href="/enterprise/">Enterprise (waitlist)</a></div></div></footer>
+</body>
+</html>

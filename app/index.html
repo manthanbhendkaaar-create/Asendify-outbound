@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Asendify Outbound</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/app/app.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+</head>
+<body>
+<div id="auth" class="auth hidden">
+  <div class="authbox">
+    <a class="logo" href="/"><i></i>Asendify <span>Outbound</span></a>
+    <h2 id="authTitle">Log in</h2>
+    <p class="small" id="authSub">Welcome back.</p>
+    <label>Email<input id="aEmail" type="email" autocomplete="email"></label>
+    <label>Password<input id="aPass" type="password" autocomplete="current-password" minlength="8"></label>
+    <button class="btn btn-primary" id="aGo" style="width:100%">Log in</button>
+    <p class="msg" id="aMsg"></p>
+    <p class="small" style="margin-top:14px"><a href="#" id="aSwitch" style="color:var(--brand)">New here? Start your free trial</a></p>
+  </div>
+</div>
+
+<div id="app" class="shell hidden">
+  <aside>
+    <a class="logo" href="/"><i></i>Asendify <span>Outbound</span></a>
+    <nav>
+      <a href="#campaigns" data-v="campaigns">Campaigns</a>
+      <a href="#inbox" data-v="inbox">Inbox <b id="inboxCount" class="badge hidden"></b></a>
+      <a href="#mailboxes" data-v="mailboxes">Email accounts</a>
+      <a href="#settings" data-v="settings">Settings</a>
+    </nav>
+    <div class="plan" id="planBox"></div>
+    <a href="#" id="logout" class="small">Log out</a>
+  </aside>
+  <main id="view"></main>
+</div>
+<div id="toast" class="toast hidden"></div>
+
+<script src="/app/app.js"></script>
+<script src="/app/fee.js"></script>
+<script src="/app/rzp.js"></script>
+<script src="/app/trial.js"></script>
+<script src="/ref.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+# Asendify Outbound
+
+> Asendify Outbound (https://outbound.asendify.co) is cold email software by Asendify. It sends personalised multi-step cold email campaigns from unlimited inboxes with built-in warm-up, and includes an AI reply agent that reads every reply, answers interested leads and questions using only the customer's own offer facts, and shares their booking link. Plans start at £29/month plus a 45% service fee (£42.05/month total), flat (not per user). A done-for-you starter package (£1,395.80 + 45% service fee = £2,023.91, one-time) sets up inboxes, domains, copy and lead lists. Enterprise (custom-volume setups) is currently at full capacity: new clients join a free waitlist or reserve the next slot with a £500 refundable deposit (credited to the first invoice).
+
+## Key facts
+- Prices are in GBP. Plans (monthly, cancel any time), each plus a 45% service fee shown before payment: Base £29 (£42.05 total; 2,000 contacts, 6,000 emails/month), Pro £79 (£114.55 total; 30,000 contacts, 100,000 emails/month), Scale £179 (£259.55 total; 100,000 contacts, 300,000 emails/month). Enterprise: custom, currently at full capacity (free waitlist or £500 refundable deposit to reserve the next slot: https://outbound.asendify.co/enterprise/).
+- Done-for-you starter: £1,395.80 + 45% service fee = £2,023.91 one-time: 10 warmed sending inboxes, 4 sending domains, copy, 1,000 targeted leads and the first month managed. https://outbound.asendify.co/done-for-you/
+- 14-day free trial: a card or PayPal account is required at sign-up; nothing is charged for 14 days, then the chosen plan starts automatically unless cancelled.
+- Affiliate program: earn 30% of every monthly payment from customers you refer, for as long as they stay subscribed, paid monthly via PayPal. https://outbound.asendify.co/affiliates/
+- Unlimited sending inboxes and warm-up (with spam rescue) on every plan.
+- AI reply agent included on every plan: sorts replies (interested, question, not interested, unsubscribe, out of office, wrong person), answers interested leads within minutes, saves unclear replies as drafts.
+- Inboxes supported: Gmail, Google Workspace, Zoho and any IMAP/SMTP inbox (SSL). Outlook / Microsoft 365 sending is not supported yet.
+- Campaign features: multi-step sequences with follow-ups in the same thread, custom fields, spintax, A/B/C variants, sending windows, stop on reply, CSV upload, MX email checks, bounce and unsubscribe handling, one shared inbox for all replies.
+- No built-in lead database: customers upload their own lists, or Asendify builds lists on the done-for-you service.
+- Not available yet: native CRM integrations, Zapier/webhooks, public API, LinkedIn steps, separate client logins.
+- Best for: agencies, consultants, B2B service businesses and SaaS teams that want cold email with replies handled automatically.
+
+## Compared with other tools (list prices, October 2026)
+- Instantly: from $47/month; AI Reply Agent paid with credits.
+- Smartlead: from $39/month (6,000 emails).
+- Lemlist: Email plan $69/month (50,000 emails); Multichannel $109/user/month.
+- Saleshandy: Starter $41/month (6,000 emails), Pro $99/month (100,000 emails).
+- Reply.io: from $59/user/month; AI SDR from $800/month.
+- Mailshake: from $49/user/month with 2 sending addresses.
+- Woodpecker: $7 per 100 contacted prospects per month.
+
+## Pages
+- [Home and pricing](https://outbound.asendify.co/)
+- [Best cold email software 2026](https://outbound.asendify.co/best-cold-email-software/)
+- [Cold email software pricing guide](https://outbound.asendify.co/cold-email-software-pricing/)
+- [AI reply agent](https://outbound.asendify.co/ai-reply-agent/)
+- [Cold email software for agencies](https://outbound.asendify.co/cold-email-software-for-agencies/)
+- [Instantly vs Smartlead](https://outbound.asendify.co/instantly-vs-smartlead/)
+- [Instantly alternative](https://outbound.asendify.co/instantly-alternative/)
+- [Smartlead alternative](https://outbound.asendify.co/smartlead-alternative/)
+- [Lemlist alternative](https://outbound.asendify.co/lemlist-alternative/)
+- [Saleshandy alternative](https://outbound.asendify.co/saleshandy-alternative/)
+- [Woodpecker alternative](https://outbound.asendify.co/woodpecker-alternative/)
+- [Reply.io alternative](https://outbound.asendify.co/reply-io-alternative/)
+- [Mailshake alternative](https://outbound.asendify.co/mailshake-alternative/)
+- [Cold email software guide](https://outbound.asendify.co/cold-email-software/)
+- [Done-for-you starter package](https://outbound.asendify.co/done-for-you/)
+- [Affiliate program (30% recurring)](https://outbound.asendify.co/affiliates/)
+- [Book a call / enterprise](https://outbound.asendify.co/enterprise/)
