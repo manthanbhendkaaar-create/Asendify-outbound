@@ -60,3 +60,6 @@ footer a:hover{color:var(--ink)}
 .article ul{padding-left:22px}
 @media (max-width:900px){.prices{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){nav.links a:not(.btn){display:none}.grid3,.grid2,.prices{grid-template-columns:1fr}.stats{gap:24px}section{padding:60px 0}}
+input:not([type=checkbox]):not([type=radio]),select,textarea{background-color:#0f0d09;color:var(--ink);border-color:var(--line)}
+option{background:#15130e;color:#f4efe3}
+button.btn:not(.btn-primary):not(.btn-ghost){background-color:#15130e;color:var(--ink);border-color:var(--line)}
