@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="/assets/site.css">
 <style>
 .f label{display:block;font-weight:600;font-size:13px;margin-top:14px}
-.f label small{display:block;font-weight:400;color:var(--muted,#667);margin-top:2px}
-.f input,.f select,.f textarea{width:100%;margin-top:6px;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+.f label small{display:block;font-weight:400;color:var(--muted,#b4a98f);margin-top:2px}
+.f input,.f select,.f textarea{width:100%;margin-top:6px;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#15130e}
 .f .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .f .grid2 label{margin-top:14px}
 .f .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
@@ -215,7 +215,7 @@ $id("mGo").onclick = async () => {
   say("");
   const rzp = new window.Razorpay({ key: r.key_id, order_id: r.order_id, customer_id: r.customer_id, recurring: "1",
     name: "Asendify Outbound", description: "Bank mandate for your call (nothing charged now)",
-    prefill: { name: r.name, email: r.email, contact: r.contact, method: "emandate" }, theme: { color: "#4f46e5" },
+    prefill: { name: r.name, email: r.email, contact: r.contact, method: "emandate" }, theme: { color: "#d4af37" },
     handler: async (pay) => { say("Confirming your mandate...");
       const d = await mpost({ action: "done", order_id: r.order_id, payment_id: pay.razorpay_payment_id });
       if (d && d.ok) showPick(false); else { go.disabled = false; say((d && d.error) || "The mandate wasn't completed. Please try again.", true); } },
