@@ -13,7 +13,7 @@
 
   var t0 = Date.now(), box = null, inrMode = false;
   function ws() { try { return typeof WS !== "undefined" ? WS : null; } catch (e) { return null; } }
-  function needsCard() { var w = ws(); return !!(w && w.card_required && !w.paypal_subscription_id && !w.rzp_subscription_id); }
+  function needsCard() { var w = ws(); return !!(w && w.card_required && !w.paypal_subscription_id && !w.rzp_subscription_id && !w.rzp_token_id); }   // 2026-10-14: rzp_token_id = ₹ bank mandate
   function returning() { return /[?&]billing=ok/.test(location.search) && Date.now() - t0 < 20000; }
   function firstCharge() { return new Date(Date.now() + 14 * 86400000).toLocaleDateString("en-GB", { day: "numeric", month: "long" }); }
 
