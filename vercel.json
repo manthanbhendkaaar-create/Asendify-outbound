@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/blog",
+      "destination": "https://playbook.asendify.co/api/blog?svc=outbound"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "https://playbook.asendify.co/api/blog?svc=outbound&slug=:slug"
+    },
+    {
+      "source": "/blog-sitemap.xml",
+      "destination": "https://playbook.asendify.co/api/blog?svc=outbound&sitemap=1"
+    }
+  ]
+}
