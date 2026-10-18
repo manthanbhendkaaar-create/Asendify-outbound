@@ -49,5 +49,20 @@
 <div style="display:flex;gap:10px 18px;flex-wrap:wrap"><a href="/best-cold-email-software/">Best cold email software</a><a href="/cold-email-software-pricing/">Cold email pricing</a><a href="/ai-reply-agent/">AI reply agent</a><a href="/cold-email-software-for-agencies/">For agencies</a><a href="/instantly-vs-smartlead/">Instantly vs Smartlead</a><a href="/instantly-alternative/">Instantly alternative</a><a href="/smartlead-alternative/">Smartlead alternative</a><a href="/lemlist-alternative/">Lemlist alternative</a><a href="/saleshandy-alternative/">Saleshandy alternative</a><a href="/woodpecker-alternative/">Woodpecker alternative</a><a href="/reply-io-alternative/">Reply.io alternative</a><a href="/mailshake-alternative/">Mailshake alternative</a><a href="/cold-email-software/">Cold email software guide</a><a href="/done-for-you/">Done-for-you</a><a href="/enterprise/">Enterprise (waitlist)</a></div></div><div class="asd-books-line" style="text-align:center;padding:14px 16px 4px;font-size:14px"><a class="asd-books-foot" href="https://www.asendify.co/books/?utm_source=outbound&utm_medium=footer" style="color:#d4af37;text-decoration:none;font-weight:600">Asendify Books: 21 practical playbooks &rarr;</a></div></footer>
 <script src="/assets/js/blossom.js?v=3" defer></script>
 <script src="/asd-booksbar.js" data-src="outbound" defer></script>
+<script>/* 2026-10-18: real-visit counter for the Asendify Channels dashboard (same rules as the book shops). */
+(function(){try{if(sessionStorage.getItem('asd_sv')==='1')return;var q0=new URLSearchParams(location.search);
+if(q0.get('internal')==='1')document.cookie='asd_internal=1; domain=.asendify.co; path=/; max-age=63072000; SameSite=Lax; Secure';
+if(/(^|;\s*)asd_internal=1/.test(document.cookie))return;
+if(navigator.webdriver||/bot\b|bot\/|crawl|spider|slurp|preview|headless|lighthouse|scanner|facebookexternalhit/i.test(navigator.userAgent))return;
+var c=function(v){return String(v||'').toLowerCase().replace(/[^a-z0-9._-]/g,'').slice(0,60)};var src='';
+if(q0.get('utm_source'))src=[c(q0.get('utm_source')),c(q0.get('utm_medium')),c(q0.get('utm_campaign'))].join('/');
+if(!src&&document.referrer){var h=new URL(document.referrer).hostname.replace(/^www\./,'');if(h&&!/(^|\.)asendify\.co$/.test(h))src='ref/'+c(h);}
+src=src||'direct';var path=location.pathname.replace(/[^a-zA-Z0-9._\/-]/g,'').slice(0,120)||'/';
+var acts=['scroll','pointerdown','touchstart','keydown','mousemove','wheel'],sent=false,shown=0,tick;
+var send=function(how){if(sent)return;sent=true;clearInterval(tick);acts.forEach(function(e){removeEventListener(e,on,true)});
+try{sessionStorage.setItem('asd_sv','1')}catch(e){}
+fetch('https://playbook.asendify.co/api/ref',{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({visit:src,page:path,engaged:how})}).catch(function(){})};
+var on=function(){send('interact')};acts.forEach(function(e){addEventListener(e,on,{capture:true,passive:true})});
+tick=setInterval(function(){if(document.visibilityState==='visible'&&(shown+=1000)>=12000)send('time')},1000);}catch(e){}})();</script>
 </body>
 </html>
