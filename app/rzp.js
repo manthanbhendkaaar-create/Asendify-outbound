@@ -81,7 +81,7 @@
     box.style.cssText = "margin-top:14px;padding-top:14px;border-top:1px solid var(--line,#e5e7eb)";
     box.innerHTML = '<p class="small" style="margin:0 0 8px"><b>In India?</b> Pay monthly in ₹ through a bank mandate with Razorpay: set it up once, nothing is charged until your plan is due (prices include the 45% service fee).</p>' +
       '<div style="display:flex;flex-wrap:wrap;gap:8px">' + ["base", "pro", "scale"].map(function (id) {
-        return '<button class="btn btn-ghost" data-rzp="' + id + '">' + id[0].toUpperCase() + id.slice(1) + ": " + inr(AO_INR[id]) + "/month</button>";
+        return '<button class="paybtn alt btn btn-ghost" data-rzp="' + id + '">' + id[0].toUpperCase() + id.slice(1) + ": " + inr(AO_INR[id]) + "/month</button>";
       }).join("") + "</div>";
     panel.appendChild(box);
     box.querySelectorAll("[data-rzp]").forEach(function (bt) {

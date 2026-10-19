@@ -125,11 +125,11 @@ m.style.color="var(--bad)";m.textContent=r.error||"Something went wrong. Please 
 <div id="done" style="display:none;text-align:center;padding:10px 0">
 <h3 style="margin:0 0 6px">Thanks, we've got everything.</h3>
 <div id="gate"><p class="small" style="margin-bottom:16px">Where is your business based?</p>
-<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button type="button" class="btn btn-primary btn-lg" id="outside">Outside India</button><button type="button" class="btn btn-lg" id="india">In India</button></div></div>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button type="button" class="paybtn btn btn-primary btn-lg" id="outside">Outside India</button><button type="button" class="paybtn alt btn btn-lg" id="india">In India</button></div></div>
 <div id="mand" style="display:none;text-align:left;max-width:460px;margin:0 auto">
 <p class="small" style="margin-bottom:12px">To book, clients in India set up a bank mandate (eNACH) through Razorpay. <b>Nothing is charged when you book. Any package is only charged once you've agreed to it.</b> You can cancel the mandate any time through your bank.</p>
 <div class="f"><label class="req">Mobile number<input id="mPhone" type="tel" autocomplete="tel" placeholder="10-digit mobile number"></label></div>
-<button type="button" class="btn btn-primary btn-lg" id="mGo" style="margin-top:12px">Set up mandate and pick a time</button>
+<button type="button" class="paybtn btn btn-primary btn-lg" id="mGo" style="margin-top:12px">Set up mandate and pick a time</button>
 <p id="mMsg" class="small" style="margin-top:10px"></p></div>
 <div id="pick" style="display:none"><p class="small" style="margin-bottom:16px">Last step: pick a time for your 30-minute call. We'll come with a plan for your setup.</p>
 <a class="btn btn-primary btn-lg" id="book" target="_blank" rel="noopener">Pick a time</a></div>
@@ -225,7 +225,7 @@ $id("mGo").onclick = async () => {
 };
 </script><footer><div class="wrap"><div><b style="color:var(--ink)">Asendify Outbound</b> · Cold email software by Asendify</div>
 <div style="display:flex;gap:18px;flex-wrap:wrap"><a href="/cold-email-software/">Cold email software</a><a href="/instantly-alternative/">Instantly alternative</a><a href="/smartlead-alternative/">Smartlead alternative</a><a href="/enterprise/">Enterprise</a><a href="https://www.asendify.co">Asendify</a></div></div><div class="asd-books-line" style="text-align:center;padding:14px 16px 4px;font-size:14px"><a class="asd-books-foot" href="https://www.asendify.co/books/?utm_source=outbound&utm_medium=footer" style="color:#d4af37;text-decoration:none;font-weight:600">Asendify Books: 21 practical playbooks &rarr;</a></div></footer>
-<script src="/assets/js/blossom.js?v=4" defer></script>
+<script src="/assets/js/blossom.js?v=5" defer></script>
 <script src="/asd-booksbar.js" data-src="outbound" defer></script>
 <script>/* 2026-10-18: real-visit counter for the Asendify Channels dashboard (same rules as the book shops). */
 (function(){try{if(sessionStorage.getItem('asd_sv')==='1')return;var q0=new URLSearchParams(location.search);

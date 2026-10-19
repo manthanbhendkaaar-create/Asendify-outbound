@@ -35,7 +35,7 @@
         '<div class="ct-inr" style="display:none"><div style="font-size:28px;font-weight:800;margin:6px 0 2px">' + inr(AO_INR[p.id]) + '<small style="font-size:14px;font-weight:500">/month</small></div>' +
         '<div style="font-size:13px;color:#6b7280">incl. 45% service fee</div></div>' +
         '<div style="font-size:13px;color:#6b7280;margin:8px 0 14px">' + p.info + "</div>" +
-        '<button class="btn ' + (p.hot ? "btn-primary" : "btn-ghost") + '" data-plan="' + p.id + '" style="width:100%">Start free trial</button></div>';
+        '<button class="paybtn btn \' + (p.hot ? "btn-primary" : "btn-ghost alt") + \'" data-plan="' + p.id + '" style="width:100%">Start free trial</button></div>';
     }).join("");
     box.innerHTML = '<div style="max-width:760px;width:100%;background:#fff;border-radius:18px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.3)">' +
       '<h2 style="margin:0 0 6px">Start your 14-day free trial</h2>' +

@@ -358,7 +358,7 @@ async function viewSettings() {
   <ul>${p.contacts_limit ? `<li>${p.contacts_limit.toLocaleString()} contacts</li><li>${p.emails_month_limit.toLocaleString()} emails / month</li>` : "<li>Custom volumes</li><li>Done-for-you setup</li>"}</ul>
   ${p.id === "enterprise" ? `<a class="btn btn-ghost" href="/enterprise/?plan=enterprise&ws=${WS.id}">Book a call</a>`
     : WS.plan === p.id && WS.billing_status !== "CANCELLED" ? `<span class="btn btn-ghost" style="cursor:default">Current plan</span>`
-    : `<button class="btn ${p.id === "pro" ? "btn-primary" : "btn-ghost"}" data-sub="${p.id}">Choose ${p.name}</button>`}</div>`).join("")}</div>
+    : `<button class="paybtn btn ${p.id === "pro" ? "btn-primary" : "btn-ghost alt"}" data-sub="${p.id}">Choose ${p.name}</button>`}</div>`).join("")}</div>
   <p class="small" style="margin-top:12px">Secure checkout with PayPal (card or PayPal balance). Cancel any time; your plan stays on until the end of the month you paid for.</p></div>`;
   document.querySelectorAll("[data-sub]").forEach((bt) => bt.onclick = async () => {
     bt.disabled = true; bt.textContent = "Opening PayPal…";
