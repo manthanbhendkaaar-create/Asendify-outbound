@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cold Email Volume Calculator: Inboxes, Domains and Leads | Asendify Outbound</title>
+<meta name="description" content="Free calculator: enter your monthly cold email target and see how many inboxes, sending domains and new leads you need, at about 30 emails per inbox per day.">
+<link rel="canonical" href="https://outbound.asendify.co/cold-email-volume-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Asendify Outbound">
+<meta property="og:title" content="How many inboxes do I need for cold email? Free volume calculator">
+<meta property="og:description" content="Emails per month in, inboxes, domains, daily sends and leads per month out. Adjustable: emails per inbox per day, sending days, inboxes per domain, follow-ups.">
+<meta property="og:url" content="https://outbound.asendify.co/cold-email-volume-calculator/">
+<meta property="og:image" content="https://outbound.asendify.co/cold-email-volume-calculator/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://outbound.asendify.co/cold-email-volume-calculator/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "Cold Email Volume Calculator",
+   "url": "https://outbound.asendify.co/cold-email-volume-calculator/",
+   "applicationCategory": "BusinessApplication",
+   "operatingSystem": "Any (web browser)",
+   "isAccessibleForFree": true,
+   "description": "Free cold email volume calculator: enter how many cold emails you want to send a month and get the sending inboxes, domains, new leads per month and daily sends you need, using about 30 emails per inbox per day, 22 sending days and 3 inboxes per domain (all adjustable).",
+   "dateModified": "2026-10-20",
+   "inLanguage": "en",
+   "publisher": {
+    "@type": "Organization",
+    "name": "Asendify",
+    "url": "https://www.asendify.co/"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+   },
+   "about": {
+    "@type": "SoftwareApplication",
+    "name": "Asendify Outbound",
+    "url": "https://outbound.asendify.co/"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How many cold emails can one inbox send per day?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A common safe pace is about 30 cold emails per inbox per day once the inbox is warmed up, which is the default in this calculator. Sending far more from one inbox raises the risk of landing in spam, so teams add more inboxes instead of pushing one harder."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How many inboxes do I need to send 10,000 cold emails a month?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "About 16. At 30 emails a day over 22 sending days, one inbox sends 660 emails a month, and 10,000 ÷ 660 = 15.2, rounded up to 16 inboxes. At 3 inboxes per domain that is 6 sending domains."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why use several inboxes per domain instead of one domain?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Spreading sending across a few inboxes per domain, and a few domains, keeps each one at a modest volume and limits the damage if one domain's reputation drops. Many cold emailers use separate sending domains so their main company domain is protected."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How many leads do I need per month?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Divide your monthly emails by the number of emails each lead receives. With a first email and 2 follow-ups (3 emails per lead), 10,000 emails a month needs about 3,334 new leads a month."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I send from a brand-new inbox straight away?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It is safer not to. New inboxes and domains are usually warmed up for a few weeks first, starting with small daily volumes, before they send cold email at full pace. Build that time into your plan."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does this calculator guarantee my emails reach the inbox?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It does the arithmetic for volume, inboxes, domains and leads. Inbox placement also depends on authentication (SPF, DKIM, DMARC), list quality, bounce rate, copy and how recipients respond."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Asendify Outbound",
+     "item": "https://outbound.asendify.co/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Cold email volume calculator",
+     "item": "https://outbound.asendify.co/cold-email-volume-calculator/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+.tool{padding:56px 0 30px}.tool h1{font-size:clamp(32px,4.6vw,50px);margin:14px 0 14px}
+.answer{font-size:19px;color:var(--ink);max-width:760px;margin:0 0 10px}
+.updated{font-size:14px;color:var(--muted);margin:0 0 22px}
+.calc{background:#15130e;border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.fields label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
+.fields label small{font-weight:400;color:var(--muted);font-size:13px}
+.fields input,.fields select{font:inherit;padding:11px 12px;border:1px solid var(--line);border-radius:10px;width:100%;min-width:0}
+.fields input:focus{outline:2px solid var(--brand);outline-offset:1px}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:4px}
+.r{background:#0f0d09;border:1px solid var(--line);border-radius:12px;padding:16px}
+.r .k{color:var(--muted);font-size:14px}.r .big{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.15;color:var(--brand);overflow-wrap:anywhere}
+.r p{margin-top:6px;font-size:14px;color:var(--muted)}
+.plan{margin-top:16px;padding:16px;border:1px solid #5c4a17;border-radius:12px;background:#1d180b}
+.plan b{color:var(--ink)}.err{color:#ff8a7a;font-weight:600}
+.tbl{overflow-x:auto;margin:14px 0}.tbl table{width:100%;border-collapse:collapse;font-size:15px}.tbl td,.tbl th{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}.tbl th{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+.article h2{margin-top:44px}.article .small a,.article p a,.article li a{color:var(--brand)}
+.share{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+@media (max-width:760px){.tool{padding:36px 0 20px}.r .big{font-size:28px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="/"><i></i>Asendify <span>Outbound</span></a>
+  <nav class="links"><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/app/">Log in</a><a class="asd-books-nav" href="https://www.asendify.co/books/?utm_source=outbound&utm_medium=nav">Books</a><a class="btn btn-primary" href="/app/?signup=1">Start free trial</a></nav>
+</div></header>
+<main>
+<section class="tool"><div class="wrap article">
+<span class="pill">Free tool</span>
+<h1>How many inboxes do I need for cold email?</h1>
+<p class="answer">Divide your monthly emails by about 660 (30 emails a day × 22 sending days) to get inboxes, then by 3 to get domains. 10,000 emails a month needs about 16 inboxes on 6 domains and about 3,334 new leads (1 email + 2 follow-ups each).</p>
+<p class="updated">Last updated: <time datetime="2026-10-20">20 October 2026</time> · Free, no sign-up, runs in your browser.</p>
+
+<div class="calc">
+  <div class="fields">
+    <label>Cold emails you want to send per month<input type="number" id="emails" min="0" step="100" value="10000" inputmode="numeric"><small>Include follow-ups</small></label>
+    <label>Emails per inbox per day<input type="number" id="perDay" min="1" step="1" value="30" inputmode="numeric"><small>About 30 is a common safe pace once warmed up</small></label>
+    <label>Sending days per month<input type="number" id="days" min="1" max="31" step="1" value="22" inputmode="numeric"><small>22 = weekdays only</small></label>
+    <label>Inboxes per domain<input type="number" id="perDomain" min="1" step="1" value="3" inputmode="numeric"><small>About 3 is common</small></label>
+    <label>Emails per lead<input type="number" id="steps" min="1" max="10" step="1" value="3" inputmode="numeric"><small>3 = first email + 2 follow-ups</small></label>
+  </div>
+</div>
+<div class="calc" id="out" aria-live="polite"></div>
+
+<h2>How the numbers are worked out</h2>
+<div class="tbl"><table>
+<tr><th>Result</th><th>Formula</th><th>Example (10,000 a month)</th></tr>
+<tr><td>Emails per inbox per month</td><td>Emails per inbox per day × sending days</td><td>30 × 22 = 660</td></tr>
+<tr><td>Inboxes</td><td>Monthly emails ÷ emails per inbox per month, rounded up</td><td>10,000 ÷ 660 = 15.2 → 16</td></tr>
+<tr><td>Domains</td><td>Inboxes ÷ inboxes per domain, rounded up</td><td>16 ÷ 3 = 5.3 → 6</td></tr>
+<tr><td>New leads per month</td><td>Monthly emails ÷ emails per lead, rounded up</td><td>10,000 ÷ 3 = 3,334</td></tr>
+<tr><td>Emails per sending day</td><td>Monthly emails ÷ sending days</td><td>10,000 ÷ 22 ≈ 455</td></tr>
+</table></div>
+<p>Rounding up matters: 15.2 inboxes means 16 real inboxes, or some of them go over your daily limit. If you want headroom for bounces or a paused inbox, add one or two spare inboxes.</p>
+
+<h2>How Asendify Outbound helps</h2>
+<p>Once you know the numbers, <a href="/?utm_source=tool&amp;utm_medium=cold-email-volume-calculator&amp;utm_campaign=helps">Asendify Outbound</a> runs them: unlimited sending inboxes and warm-up on every plan, multi-step sequences with follow-ups in the same thread, sending windows, stop on reply, and an AI reply agent that answers interested leads and sends your booking link. Plans are limited by emails and active contacts per month, not by inboxes, so adding the inboxes this calculator suggests costs nothing extra on our side (you still pay your email provider for each inbox and domain).</p>
+<p>Don't want to set it up yourself? The <a href="/done-for-you/?utm_source=tool&amp;utm_medium=cold-email-volume-calculator&amp;utm_campaign=helps">done-for-you starter</a> sets up 10 warmed sending inboxes, 4 sending domains, copy and 1,000 targeted leads.</p>
+<div class="ctas" style="margin:18px 0 6px"><a class="btn btn-primary" href="/app/?signup=1&amp;utm_source=tool&amp;utm_medium=cold-email-volume-calculator&amp;utm_campaign=cta">Start free 14-day trial</a><a class="btn btn-ghost" href="/#pricing">See pricing</a></div>
+<p class="small">The 14-day trial needs a card or PayPal account at sign-up; nothing is charged for 14 days.</p>
+
+<h2>Questions</h2>
+<details><summary>How many cold emails can one inbox send per day?</summary><p>A common safe pace is about 30 cold emails per inbox per day once the inbox is warmed up, which is the default in this calculator. Sending far more from one inbox raises the risk of landing in spam, so teams add more inboxes instead of pushing one harder.</p></details>
+<details><summary>How many inboxes do I need to send 10,000 cold emails a month?</summary><p>About 16. At 30 emails a day over 22 sending days, one inbox sends 660 emails a month, and 10,000 ÷ 660 = 15.2, rounded up to 16 inboxes. At 3 inboxes per domain that is 6 sending domains.</p></details>
+<details><summary>Why use several inboxes per domain instead of one domain?</summary><p>Spreading sending across a few inboxes per domain, and a few domains, keeps each one at a modest volume and limits the damage if one domain's reputation drops. Many cold emailers use separate sending domains so their main company domain is protected.</p></details>
+<details><summary>How many leads do I need per month?</summary><p>Divide your monthly emails by the number of emails each lead receives. With a first email and 2 follow-ups (3 emails per lead), 10,000 emails a month needs about 3,334 new leads a month.</p></details>
+<details><summary>Can I send from a brand-new inbox straight away?</summary><p>It is safer not to. New inboxes and domains are usually warmed up for a few weeks first, starting with small daily volumes, before they send cold email at full pace. Build that time into your plan.</p></details>
+<details><summary>Does this calculator guarantee my emails reach the inbox?</summary><p>No. It does the arithmetic for volume, inboxes, domains and leads. Inbox placement also depends on authentication (SPF, DKIM, DMARC), list quality, bounce rate, copy and how recipients respond.</p></details>
+
+<p class="small" style="margin-top:28px">This tool does arithmetic on the numbers you enter. The defaults (30 emails per inbox per day, 22 sending days, 3 inboxes per domain, 3 emails per lead) are common starting points, not rules from any email provider; check your provider's own sending limits. Plan limits are from the <a href="/#pricing">Asendify Outbound pricing</a> on 20 October 2026.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><div><b style="color:var(--ink)">Asendify Outbound</b> · Cold email software by <a href="https://www.asendify.co">Asendify</a></div>
+<div style="display:flex;gap:10px 18px;flex-wrap:wrap"><a href="/cold-email-volume-calculator/">Cold email volume calculator</a><a href="/best-cold-email-software/">Best cold email software</a><a href="/cold-email-software-pricing/">Cold email pricing</a><a href="/ai-reply-agent/">AI reply agent</a><a href="/done-for-you/">Done-for-you</a><a href="https://www.asendify.co/tools/">All free tools</a></div></div></footer>
+<script>
+(function(){
+'use strict';
+var $=function(i){return document.getElementById(i)};
+var IDS=['emails','perDay','days','perDomain','steps'];
+function num(i){var x=parseFloat(String($(i).value).replace(/[, ]/g,''));return isFinite(x)?x:0}
+function nf(x,d){return isFinite(x)?new Intl.NumberFormat('en-GB',{maximumFractionDigits:d||0}).format(x):'–'}
+// Plans on outbound.asendify.co/#pricing (20 Oct 2026): emails per month and active contacts.
+var PLANS=[{n:'Base',emails:6000,contacts:2000,price:'£42.05/month (£29 + 45% service fee)'},{n:'Pro',emails:100000,contacts:30000,price:'£114.55/month (£79 + 45% service fee)'},{n:'Scale',emails:300000,contacts:100000,price:'£259.55/month (£179 + 45% service fee)'}];
+function plan(o){
+ if(!(o.emails>0))return {err:'Enter how many cold emails you want to send per month.'};
+ if(!(o.perDay>0))return {err:'Enter how many emails each inbox sends per day.'};
+ if(!(o.days>0)||o.days>31)return {err:'Sending days per month must be between 1 and 31.'};
+ if(!(o.perDomain>0))return {err:'Enter how many inboxes you put on each domain.'};
+ if(!(o.steps>=1))return {err:'Each lead gets at least 1 email.'};
+ var perInboxMonth=o.perDay*o.days;
+ var inboxes=Math.ceil(o.emails/perInboxMonth-1e-9);
+ var domains=Math.ceil(inboxes/Math.floor(o.perDomain)-1e-9);
+ var leads=Math.ceil(o.emails/Math.floor(o.steps)-1e-9);
+ var perSendDay=o.emails/o.days;
+ var capacity=inboxes*perInboxMonth;
+ var fit=null;for(var i=0;i<PLANS.length;i++){if(o.emails<=PLANS[i].emails&&leads<=PLANS[i].contacts){fit=PLANS[i];break}}
+ return {perInboxMonth:perInboxMonth,inboxes:inboxes,domains:domains,leads:leads,perSendDay:perSendDay,capacity:capacity,spare:capacity-o.emails,fit:fit};
+}
+if(typeof module!=='undefined')module.exports={plan:plan};
+function calc(){
+ var o={emails:num('emails'),perDay:num('perDay'),days:num('days'),perDomain:num('perDomain'),steps:num('steps')};
+ var r=plan(o),h;
+ if(r.err){$('out').innerHTML='<p class="err">'+r.err+'</p>';save();return}
+ h='<div class="res">'
+ +'<div class="r"><div class="k">Sending inboxes</div><div class="big" id="rInboxes">'+nf(r.inboxes)+'</div><p>Each sends '+nf(o.perDay)+' a day, '+nf(r.perInboxMonth)+' a month.</p></div>'
+ +'<div class="r"><div class="k">Sending domains</div><div class="big" id="rDomains">'+nf(r.domains)+'</div><p>At '+nf(Math.floor(o.perDomain))+' inboxes per domain.</p></div>'
+ +'<div class="r"><div class="k">New leads per month</div><div class="big" id="rLeads">'+nf(r.leads)+'</div><p>'+nf(Math.floor(o.steps))+' emails per lead'+(o.steps>=2?' (1 first email + '+nf(Math.floor(o.steps)-1)+' follow-up'+(o.steps>=3?'s':'')+')':'')+'.</p></div>'
+ +'<div class="r"><div class="k">Emails per sending day</div><div class="big" id="rDaily">'+nf(r.perSendDay)+'</div><p>Across all inboxes, over '+nf(o.days)+' sending days.</p></div>'
+ +'</div>';
+ h+='<p class="small" style="margin-top:12px">'+nf(r.inboxes)+' inboxes can send up to '+nf(r.capacity)+' emails a month, '+nf(r.spare)+' more than your target. Plan a few weeks of warm-up before new inboxes send at full pace.</p>';
+ if(r.fit)h+='<div class="plan">On Asendify Outbound, <b>'+r.fit.n+'</b> covers this: up to '+nf(r.fit.emails)+' emails and '+nf(r.fit.contacts)+' active contacts a month, '+r.fit.price+', with unlimited inboxes and warm-up. <a href="/#pricing" style="color:var(--brand)">See plans</a></div>';
+ else h+='<div class="plan">This is above the Scale plan (300,000 emails and 100,000 active contacts a month). For custom volumes see <a href="/enterprise/" style="color:var(--brand)">Enterprise</a> (currently a waitlist).</div>';
+ h+='<div class="share"><button class="btn btn-ghost" type="button" id="copyBtn">Copy my numbers</button><button class="btn btn-ghost" type="button" id="linkBtn">Copy link to this result</button></div>';
+ $('out').innerHTML=h;
+ var txt='To send '+nf(o.emails)+' cold emails a month: '+nf(r.inboxes)+' inboxes, '+nf(r.domains)+' domains, '+nf(r.leads)+' new leads a month ('+nf(r.perSendDay)+' emails per sending day).';
+ $('copyBtn').onclick=function(){copy(txt,this,'Copied ✓')};
+ $('linkBtn').onclick=function(){copy(location.origin+location.pathname+'?'+qs(),this,'Link copied ✓')};
+ save();
+}
+function qs(){var p=new URLSearchParams();IDS.forEach(function(i){p.set(i,String($(i).value).slice(0,20))});return p.toString()}
+function save(){try{history.replaceState(null,'','?'+qs())}catch(e){}}
+function copy(t,b,done){var ok=function(){b.textContent=done};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,ok)}else ok()}
+var q=new URLSearchParams(location.search);IDS.forEach(function(i){if(q.has(i)){var v=parseFloat(q.get(i));if(isFinite(v)&&v>=0)$(i).value=String(v)}});
+IDS.forEach(function(i){$(i).addEventListener('input',calc)});
+calc();
+})();
+</script>
+<script src="/asd-booksbar.js" data-src="outbound" defer></script>
+<script>/* 2026-10-20: real-visit counter for the Asendify Channels dashboard (same rules as the book shops). */
+(function(){try{if(sessionStorage.getItem('asd_sv')==='1')return;var q0=new URLSearchParams(location.search);
+if(q0.get('internal')==='1')document.cookie='asd_internal=1; domain=.asendify.co; path=/; max-age=63072000; SameSite=Lax; Secure';
+if(/(^|;\s*)asd_internal=1/.test(document.cookie))return;
+if(navigator.webdriver||/bot\b|bot\/|crawl|spider|slurp|preview|headless|lighthouse|scanner|facebookexternalhit/i.test(navigator.userAgent))return;
+var c=function(v){return String(v||'').toLowerCase().replace(/[^a-z0-9._-]/g,'').slice(0,60)};var src='';
+if(q0.get('utm_source'))src=[c(q0.get('utm_source')),c(q0.get('utm_medium')),c(q0.get('utm_campaign'))].join('/');
+if(!src&&document.referrer){var h=new URL(document.referrer).hostname.replace(/^www\./,'');if(h&&!/(^|\.)asendify\.co$/.test(h))src='ref/'+c(h);}
+src=src||'direct';var path=location.pathname.replace(/[^a-zA-Z0-9._\/-]/g,'').slice(0,120)||'/';
+var acts=['scroll','pointerdown','touchstart','keydown','mousemove','wheel'],sent=false,shown=0,tick;
+var send=function(how){if(sent)return;sent=true;clearInterval(tick);acts.forEach(function(e){removeEventListener(e,on,true)});
+try{sessionStorage.setItem('asd_sv','1')}catch(e){}
+fetch('https://playbook.asendify.co/api/ref',{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({visit:src,page:path,engaged:how,product:'outbound'})}).catch(function(){})};
+var on=function(){send('interact')};acts.forEach(function(e){addEventListener(e,on,{capture:true,passive:true})});
+tick=setInterval(function(){if(document.visibilityState==='visible'&&(shown+=1000)>=12000)send('time')},1000);}catch(e){}})();</script>
+</body>
+</html>
