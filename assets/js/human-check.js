@@ -22,19 +22,18 @@
     el.classList.add("hc");
     el.innerHTML = '<button type="button" class="hc-btn" aria-describedby="hcm-' + brand + '"><span class="hc-fill"></span><span class="hc-t">Press and hold to confirm you\'re a person</span></button><div class="hc-m" id="hcm-' + brand + '" aria-live="polite"></div>';
     var btn = el.querySelector(".hc-btn"), fill = el.querySelector(".hc-fill"), label = el.querySelector(".hc-t"), msg = el.querySelector(".hc-m");
-    var token = null, startP = null, pass = null, holding = false, t0 = 0, raf = 0, hsP = null, hsAt = 0, busy = false;
+    var token = null, startP = null, pass = null, holding = false, t0 = 0, raf = 0, timer = 0, hsP = null, hsAt = 0, busy = false;
     function say(t, bad) { msg.textContent = t || ""; msg.style.color = bad ? "#dc2626" : ""; }
     function start() { startP = post({ action: "start", brand: brand }).then(function (r) { if (r && r.token) token = r.token; return r; }); return startP; }
     function reset(t) {
-      pass = null; holding = false; busy = false; cancelAnimationFrame(raf); fill.style.width = "0";
+      pass = null; holding = false; busy = false; cancelAnimationFrame(raf); clearTimeout(timer); fill.style.width = "0";
       el.classList.remove("ok"); btn.disabled = false; label.textContent = "Press and hold to confirm you're a person"; say(t || "", !!t);
       if (!token) start();
     }
     function frame() {
       if (!holding) return;
       var p = Math.min(1, (Date.now() - t0) / HOLD_MS); fill.style.width = (p * 100) + "%";
-      if (p >= 1) { holding = false; finish(); return; }
-      raf = requestAnimationFrame(frame);
+      if (p < 1) raf = requestAnimationFrame(frame);
     }
     function down(e) {
       if (pass || busy || holding) return;
@@ -43,12 +42,13 @@
       holding = true; t0 = Date.now(); say("Keep holding…");
       var go = function () { return post({ action: "hold_start", token: token }).then(function (r) { hsAt = Date.now(); return r; }); };
       hsP = token ? go() : (startP || start()).then(function () { return go(); });
-      raf = requestAnimationFrame(frame);
+      raf = requestAnimationFrame(frame);                              // the bar (visual only)
+      timer = setTimeout(function () { if (!holding) return; holding = false; cancelAnimationFrame(raf); fill.style.width = "100%"; finish(); }, HOLD_MS);
     }
     function up(e) {
       if (e && e.type === "keyup" && e.key !== " " && e.key !== "Enter") return;
       if (!holding) return;
-      holding = false; cancelAnimationFrame(raf); fill.style.width = "0"; say("Keep holding until the bar fills.", true);
+      holding = false; cancelAnimationFrame(raf); clearTimeout(timer); fill.style.width = "0"; say("Keep holding until the bar fills.", true);
     }
     function finish() {
       busy = true; btn.disabled = true; label.textContent = "Checking…"; say("");
