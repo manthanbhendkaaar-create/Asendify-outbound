@@ -24,6 +24,11 @@
 - Mailshake: from $49/user/month with 2 sending addresses.
 - Woodpecker: $7 per 100 contacted prospects per month.
 
+## Free tool
+- [Cold Email Volume Calculator](https://outbound.asendify.co/cold-email-volume-calculator/): Enter how many cold emails you want to send a month to see the sending inboxes, domains, new leads per month and daily sends you need (defaults: about 30 emails per inbox per day, 22 sending days, 3 inboxes per domain, 3 emails per lead; all adjustable), and which Asendify Outbound plan covers that volume. Free, runs in the browser.
+- Who it's for: founders, agencies and sales teams planning a cold email setup.
+- More free tools from Asendify: https://www.asendify.co/tools/
+
 ## Pages
 - [Home and pricing](https://outbound.asendify.co/)
 - [Best cold email software 2026](https://outbound.asendify.co/best-cold-email-software/)
