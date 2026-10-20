@@ -15,6 +15,52 @@
 - Not available yet: native CRM integrations, Zapier/webhooks, public API, LinkedIn steps, separate client logins.
 - Best for: agencies, consultants, B2B service businesses and SaaS teams that want cold email with replies handled automatically.
 
+## Every feature, by name (last updated 20 October 2026)
+- Unlimited email accounts: connect as many sending inboxes as you like, on every plan
+- Gmail and Google Workspace: connect with a 16-character app password
+- Zoho Mail: connect with an app-specific password, including zoho.eu and zoho.in accounts
+- Any IMAP/SMTP inbox: any provider with SSL (SMTP port 465, IMAP port 993)
+- Test button: check an inbox's connection from the Email accounts page
+- Daily sending limit per inbox: set from 1 to 200 emails a day for each inbox
+- Inbox rotation: sends are spread across your inboxes with safe daily limits and natural gaps
+- Warm-up network: your inboxes email each other and the network, switched on or off per inbox
+- Spam rescue: warm-up emails that land in spam are rescued automatically
+- Campaigns: create, start and pause campaigns, each with its own leads, sequence and settings
+- Multi-step sequences: add follow-ups and choose how many days after the previous email each one goes out
+- Same-thread follow-ups: leave a follow-up subject empty and it is sent as a reply in the same thread
+- A/B/C variants: up to 3 versions of each email in a sequence
+- Merge fields: {{first_name}}, {{company}}, {{website}} or any column from your CSV
+- Fallback values: {{first_name|there}} fills in a default when a field is empty
+- Spintax: {Hi|Hey|Hello} picks one option at random for each email
+- Sender name and signature: set per inbox; the signature is optional
+- Choose the sending inboxes: pick which email accounts send each campaign
+- Sending schedule: choose the days, the start and end time and the time zone for each campaign
+- Campaign daily cap: a maximum number of new emails per day for the whole campaign
+- Stop on reply: the sequence stops for a lead as soon as they reply
+- CSV lead upload: upload a CSV with an email column; first name, company, website and other columns become merge fields
+- Duplicate skipping: an email address already in the campaign is not added twice
+- Email checks: check your list before sending: valid, risky and invalid addresses are counted
+- Bounce and unsubscribe handling: bounces and unsubscribes are handled automatically to protect your domain
+- AI reply agent: switch it on per campaign to answer interested leads and questions
+- Offer facts: the AI may use only the facts you write about your offer: service, price, proof and who it's for
+- Booking link: the AI shares your booking link with interested leads
+- Reply sorting: every reply is labelled: interested, question, not interested, unsubscribe, out of office or wrong person
+- AI drafts: unclear replies are saved as a draft for you to edit before sending
+- One inbox for every reply: replies from all your email accounts in one place, with warm-up emails hidden
+- Reply from the inbox: answer any reply yourself without leaving the app
+- Campaign stats: leads, emails sent, replies, interested leads and bounces for each campaign
+- Encrypted app passwords: stored in a secure vault and used only by the sending engine
+- 14-day free trial: nothing is charged until day 15
+- Flat monthly plans: priced per workspace, not per user; cancel any time and your plan stays on until the end of the month you paid for
+- Full list: https://outbound.asendify.co/#all-features
+
+## Who it's for
+- For: agencies, consultants and B2B service businesses that book sales calls from cold email; SaaS teams that want replies answered and sorted automatically; anyone sending from several Gmail, Google Workspace, Zoho or IMAP/SMTP inboxes.
+- Not for: sending from Outlook / Microsoft 365 (not supported yet); anyone who needs a built-in lead database; teams that need native CRM sync, Zapier, webhooks, a public API or LinkedIn steps today.
+
+## Free tool
+- [Cold Email Volume Calculator](https://outbound.asendify.co/cold-email-volume-calculator/): free, plan your sending volume before you start.
+
 ## Compared with other tools (list prices, October 2026)
 - Instantly: from $47/month; AI Reply Agent paid with credits.
 - Smartlead: from $39/month (6,000 emails).
