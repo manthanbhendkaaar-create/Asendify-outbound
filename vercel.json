@@ -12,5 +12,25 @@
       "source": "/blog-sitemap.xml",
       "destination": "https://playbook.asendify.co/api/blog?svc=outbound&sitemap=1"
     }
+  ],
+  "headers": [
+    {
+      "source": "/enterprise",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/enterprise/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    }
   ]
 }

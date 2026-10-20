@@ -1,41 +1,53 @@
+# 2026-10-20: call booking (/enterprise/) is for people only. AI crawlers and agents may read the site and buy plans,
+# but not open the booking page. Only the booking path is blocked, never the whole site.
 User-agent: *
 Allow: /
 Disallow: /app/
+Disallow: /enterprise/
 
 # AI assistants and AI search are welcome
 User-agent: GPTBot
 Allow: /
 Disallow: /app/
+Disallow: /enterprise/
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /app/
+Disallow: /enterprise/
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /app/
+Disallow: /enterprise/
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /app/
+Disallow: /enterprise/
 
 User-agent: Claude-SearchBot
 Allow: /
 Disallow: /app/
+Disallow: /enterprise/
 
 User-agent: Claude-User
 Allow: /
 Disallow: /app/
+Disallow: /enterprise/
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /app/
+Disallow: /enterprise/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /enterprise/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /enterprise/
 
 Sitemap: https://outbound.asendify.co/sitemap.xml
 Sitemap: https://outbound.asendify.co/blog-sitemap.xml

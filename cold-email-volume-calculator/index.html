@@ -233,7 +233,7 @@ function calc(){
  +'</div>';
  h+='<p class="small" style="margin-top:12px">'+nf(r.inboxes)+' inboxes can send up to '+nf(r.capacity)+' emails a month, '+nf(r.spare)+' more than your target. Plan a few weeks of warm-up before new inboxes send at full pace.</p>';
  if(r.fit)h+='<div class="plan">On Asendify Outbound, <b>'+r.fit.n+'</b> covers this: up to '+nf(r.fit.emails)+' emails and '+nf(r.fit.contacts)+' active contacts a month, '+r.fit.price+', with unlimited inboxes and warm-up. <a href="/#pricing" style="color:var(--brand)">See plans</a></div>';
- else h+='<div class="plan">This is above the Scale plan (300,000 emails and 100,000 active contacts a month). For custom volumes see <a href="/enterprise/" style="color:var(--brand)">Enterprise</a> (currently a waitlist).</div>';
+ else h+='<div class="plan">This is above the Scale plan (300,000 emails and 100,000 active contacts a month). For custom volumes see <a rel="nofollow" href="/enterprise/" style="color:var(--brand)">Enterprise</a> (currently a waitlist).</div>';
  h+='<div class="share"><button class="btn btn-ghost" type="button" id="copyBtn">Copy my numbers</button><button class="btn btn-ghost" type="button" id="linkBtn">Copy link to this result</button></div>';
  $('out').innerHTML=h;
  var txt='To send '+nf(o.emails)+' cold emails a month: '+nf(r.inboxes)+' inboxes, '+nf(r.domains)+' domains, '+nf(r.leads)+' new leads a month ('+nf(r.perSendDay)+' emails per sending day).';
