@@ -46,7 +46,7 @@
 (function () {
   var FN = "https://pnokotvssodslxozepxe.supabase.co/functions/v1/mandate";
   var key = "";
-  try { key = (location.hash.match(/k=([a-f0-9]{40})/) || [])[1] || sessionStorage.getItem("mk") || ""; } catch (e) { key = (location.hash.match(/k=([a-f0-9]{40})/) || [])[1] || ""; }
+  try { key = (location.hash.match(/k=([a-f0-9]{40,128})/) || [])[1] || sessionStorage.getItem("mk") || ""; } catch (e) { key = (location.hash.match(/k=([a-f0-9]{40,128})/) || [])[1] || ""; }
   try { if (key) sessionStorage.setItem("mk", key); } catch (e) {}
   if (location.hash) history.replaceState(null, "", location.pathname);
 

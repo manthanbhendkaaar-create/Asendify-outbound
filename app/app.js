@@ -36,15 +36,42 @@ $("#aGo").onclick = async () => {
   if (!email || password.length < 8) { $("#aMsg").textContent = "Enter your email and a password of at least 8 characters."; return; }
   $("#aGo").disabled = true;
   if (signupMode) {
+    // 2026-10-19 (Manthan): accounts are confirmed by email first; nothing starts until the link is clicked.
     const r = await fetch(SB_URL + "/functions/v1/signup", { method: "POST", headers: { "Content-Type": "application/json", apikey: SB_KEY }, body: JSON.stringify({ email, password }) });
     const j = await r.json().catch(() => ({}));
-    if (!r.ok) { $("#aGo").disabled = false; $("#aMsg").textContent = j.error || "Couldn't create the account."; return; }
+    $("#aGo").disabled = false;
+    if (!r.ok) { $("#aMsg").textContent = j.error || "Couldn't create the account."; return; }
+    showConfirmSent(email);
+    return;
   }
   const res = await sb.auth.signInWithPassword({ email, password });
   $("#aGo").disabled = false;
-  if (res.error) { $("#aMsg").textContent = res.error.message; return; }
+  if (res.error) {
+    if (/confirm/i.test(res.error.message)) { showConfirmSent(email, true); return; }
+    $("#aMsg").textContent = res.error.message; return;
+  }
   boot();
 };
+function showConfirmSent(email, notYet) {
+  $("#aMsg").innerHTML = (notYet ? "Please confirm your email first. " : "") + "We've sent a confirmation link to <b>" + esc(email) +
+    "</b>. Click it to open your account (check spam too). <a href=\"#\" id=\"aResend\" style=\"color:var(--brand)\">Resend the email</a>";
+  $("#aResend").onclick = async (e) => {
+    e.preventDefault();
+    const r = await fetch(SB_URL + "/functions/v1/signup", { method: "POST", headers: { "Content-Type": "application/json", apikey: SB_KEY }, body: JSON.stringify({ email, action: "resend" }) });
+    const j = await r.json().catch(() => ({}));
+    toast(r.ok ? "Sent again. Check your inbox." : (j.error || "Couldn't send it. Try again in a minute."));
+  };
+}
+// The confirmation link lands here: /app/?confirm=<token_hash>&type=signup|magiclink
+async function confirmFromLink() {
+  const q = new URLSearchParams(location.search), token_hash = q.get("confirm");
+  if (!token_hash) return;
+  history.replaceState(null, "", "/app/");
+  const type = q.get("type") === "magiclink" ? "magiclink" : "signup";
+  const { error } = await sb.auth.verifyOtp({ token_hash, type });
+  if (error) toast("That link has expired or was already used. Log in, or sign up again to get a new link.");
+  else toast("Email confirmed. Welcome!");
+}
 $("#logout").onclick = async (e) => { e.preventDefault(); await sb.auth.signOut(); location.href = "/"; };
 
 async function boot() {
@@ -78,6 +105,9 @@ async function handleBillingReturn() {
   let r = {};
   for (let i = 0; i < 4; i++) { r = await engine("billing_activate", { subscription_id: sub }); if (r.ok) break; await new Promise((res) => setTimeout(res, 3000)); }
   if (r.ok) { await reloadWS(); toast("You're on the " + r.plan[0].toUpperCase() + r.plan.slice(1) + " plan. Thank you!"); }
+  // 2026-10-19 (Manthan): a plan unlocks only once PayPal has actually taken the payment; until then it waits and is rechecked daily.
+  else if (r.pending) toast("Thanks! PayPal hasn't completed the payment yet. Your plan unlocks automatically as soon as it does.");
+  else if (r.trial_used) toast(r.error);
   else toast("We couldn't confirm the payment yet. Refresh in a minute, or email us if it doesn't update.");
 }
 function trialDaysLeft() { return Math.max(0, Math.ceil((Date.parse(WS.trial_ends_at) - Date.now()) / 86400000)); }
@@ -374,4 +404,4 @@ async function viewSettings() {
 }
 
 sb.auth.onAuthStateChange((ev) => { if (ev === "SIGNED_OUT") location.href = "/"; });
-boot();
+confirmFromLink().then(boot);

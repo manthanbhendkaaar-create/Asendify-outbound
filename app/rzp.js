@@ -42,7 +42,9 @@
         for (let i = 0; i < 5; i++) { a = await call("activate", { order_id: r.order_id, payment_id: resp && resp.razorpay_payment_id }); if (a.ok) break; await new Promise(function (res) { setTimeout(res, 3000); }); }
         if (!a.ok) return done("We couldn't confirm it yet. Refresh in a minute, or email us if it doesn't update.");
         await reloadWS();
-        toast("You're on the " + name + " plan. Thank you!");
+        // 2026-10-19 (Manthan): outside the free trial the plan starts when the first monthly debit clears.
+        if (a.pending) toast("Bank mandate set up. Your " + name + " plan starts as soon as the first debit of " + inr(r.amount_inr) + " clears (usually 1-3 working days).");
+        else toast("You're on the " + name + " plan. Thank you!");
         done(null);
         if (location.hash === "#settings") viewSettings();
       },
