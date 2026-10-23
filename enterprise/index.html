@@ -130,15 +130,8 @@ m.style.color="var(--bad)";m.textContent=r.error||"Something went wrong. Please 
 </form>
 <div id="done" style="display:none;text-align:center;padding:10px 0">
 <h3 style="margin:0 0 6px">Thanks, we've got everything.</h3>
-<div id="gate"><p class="small" style="margin-bottom:16px">Where is your business based?</p>
-<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button type="button" class="paybtn btn btn-primary btn-lg" id="outside">Outside India</button><button type="button" class="paybtn alt btn btn-lg" id="india">In India</button></div></div>
-<div id="mand" style="display:none;text-align:left;max-width:460px;margin:0 auto">
-<p class="small" style="margin-bottom:12px">To book, clients in India set up a bank mandate (eNACH) through Razorpay. <b>Nothing is charged when you book. Any package is only charged once you've agreed to it.</b> You can cancel the mandate any time through your bank.</p>
-<div class="f"><label class="req">Mobile number<input id="mPhone" type="tel" autocomplete="tel" placeholder="10-digit mobile number"></label></div>
-<button type="button" class="paybtn btn btn-primary btn-lg" id="mGo" style="margin-top:12px">Set up mandate and pick a time</button>
-<p id="mMsg" class="small" style="margin-top:10px"></p></div>
-<div id="pick" style="display:none"><p class="small" style="margin-bottom:16px">Last step: pick a time for your 30-minute call. We'll come with a plan for your setup.</p>
-<a class="btn btn-primary btn-lg" id="book" target="_blank" rel="noopener">Pick a time</a></div>
+<div id="wlfull"><p class="small" style="margin-bottom:16px">We're full right now. Join the waitlist and we'll contact you when a spot opens.</p>
+<a class="btn btn-primary btn-lg" href="https://playbook.asendify.co/obdeposit?utm_source=outbound-enterprise">Join the waitlist</a></div>
 </div></div>
 </div></div>
 <script>
@@ -176,7 +169,7 @@ function save() { try { localStorage.setItem("ao_intake", JSON.stringify(collect
 form.addEventListener("input", save);
 function show(i) { if (i === steps.length - 1 && !HC && window.HumanCheck) HC = HumanCheck.mount(document.getElementById("hcBox"), "outbound");
   cur = i; steps.forEach((s, j) => s.classList.toggle("on", j === i)); bars.forEach((b, j) => b.classList.toggle("on", j <= i));
-  back.style.visibility = i ? "visible" : "hidden"; next.textContent = i === steps.length - 1 ? "Send and pick a time" : "Next"; err.textContent = "";
+  back.style.visibility = i ? "visible" : "hidden"; next.textContent = i === steps.length - 1 ? "Send" : "Next"; err.textContent = "";
   window.scrollTo({ top: form.getBoundingClientRect().top + scrollY - 90, behavior: "smooth" }); }
 function valid(i) {
   for (const el of steps[i].querySelectorAll("[required]")) {
@@ -194,43 +187,11 @@ next.onclick = async () => {
   const d = collect(); const hp = d.hp || ""; delete d.hp; d.plan = plan; d.page = location.href.slice(0, 300); d.utm_source = p.get("utm_source") || undefined;
   const ws = p.get("ws") && /^[0-9a-f-]{36}$/i.test(p.get("ws")) ? p.get("ws") : "";
   const r = await HC.submit({ form: d, hp, workspace_id: ws });
-  if (!r || !r.ok || !r.cal || !r.cal.url) { next.disabled = false; next.textContent = "Send and pick a time"; err.textContent = (r && r.error) || "Something went wrong. Please try again in a minute."; return; }
+  if (!r || !r.ok) { next.disabled = false; next.textContent = "Send"; err.textContent = (r && r.error) || "Something went wrong. Please try again in a minute."; return; }
   try { localStorage.removeItem("ao_intake"); } catch (e) {}
-  const url = r.cal.url + "?" + new URLSearchParams({ name: d.name, email: d.email, website: d.website || "", volume: d.emails_month || "", need: d.need || "", budget: d.budget || "", utm_source: "outbound-enterprise" });
-  document.getElementById("book").href = url;
   form.style.display = "none"; document.getElementById("done").style.display = "";
-  BOOKER = d;
-  if (d.phone) document.getElementById("mPhone").value = d.phone;
 };
 
-// After the form: clients outside India pick a time straight away; clients in India first set up a
-// Razorpay eNACH bank mandate (nothing charged), then pick a time.
-const MANDATE_FN = "https://pnokotvssodslxozepxe.supabase.co/functions/v1/mandate";
-let BOOKER = {};
-const $id = (x) => document.getElementById(x);
-function showPick(open) { $id("gate").style.display = "none"; $id("mand").style.display = "none"; $id("pick").style.display = ""; if (open) window.open($id("book").href, "_blank"); }
-$id("outside").onclick = () => showPick(true);
-$id("india").onclick = () => { $id("gate").style.display = "none"; $id("mand").style.display = ""; };
-function loadRzp() { return new Promise((ok, bad) => { if (window.Razorpay) return ok(); const s = document.createElement("script"); s.src = "https://checkout.razorpay.com/v1/checkout.js"; s.onload = ok; s.onerror = () => bad(new Error("Could not load Razorpay. Please check your connection.")); document.head.appendChild(s); }); }
-const mpost = (body) => fetch(MANDATE_FN, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then((r) => r.json()).catch(() => ({ error: "Network error. Please try again." }));
-$id("mGo").onclick = async () => {
-  const go = $id("mGo"), msg = $id("mMsg"); const say = (t, bad) => { msg.textContent = t; msg.style.color = bad ? "var(--bad)" : ""; };
-  go.disabled = true; say("Starting...");
-  let r;
-  try { [, r] = await Promise.all([loadRzp(), mpost({ action: "start", brand: "outbound", name: BOOKER.name, email: BOOKER.email, contact: $id("mPhone").value, company: BOOKER.company || "" })]); }
-  catch (e) { go.disabled = false; return say(e.message, true); }
-  if (!r || r.error || !r.order_id) { go.disabled = false; return say((r && r.error) || "Something went wrong. Please try again.", true); }
-  say("");
-  const rzp = new window.Razorpay({ key: r.key_id, order_id: r.order_id, customer_id: r.customer_id, recurring: "1",
-    name: "Asendify Outbound", description: "Bank mandate for your call (nothing charged now)",
-    prefill: { name: r.name, email: r.email, contact: r.contact, method: "emandate" }, theme: { color: "#d4af37" },
-    handler: async (pay) => { say("Confirming your mandate...");
-      const d = await mpost({ action: "done", order_id: r.order_id, payment_id: pay.razorpay_payment_id });
-      if (d && d.ok) showPick(false); else { go.disabled = false; say((d && d.error) || "The mandate wasn't completed. Please try again.", true); } },
-    modal: { ondismiss: () => { go.disabled = false; say("Mandate not set up. You can try again whenever you're ready.", true); } } });
-  rzp.on("payment.failed", (f) => { go.disabled = false; say((f && f.error && f.error.description) || "The mandate didn't go through. Please try again.", true); });
-  rzp.open();
-};
 </script><footer><div class="wrap"><div><b style="color:var(--ink)">Asendify Outbound</b> · Cold email software by Asendify</div>
 <div style="display:flex;gap:18px;flex-wrap:wrap"><a href="/cold-email-software/">Cold email software</a><a href="/instantly-alternative/">Instantly alternative</a><a href="/smartlead-alternative/">Smartlead alternative</a><a rel="nofollow" href="/enterprise/">Enterprise</a><a href="https://www.asendify.co">Asendify</a></div></div><div class="asd-books-line" style="text-align:center;padding:14px 16px 4px;font-size:14px"><a class="asd-books-foot" href="https://www.asendify.co/books/?utm_source=outbound&utm_medium=footer" style="color:#d4af37;text-decoration:none;font-weight:600">Asendify Books: 21 practical playbooks &rarr;</a></div></footer>
 <script src="/assets/js/human-check.js?v=1"></script>
