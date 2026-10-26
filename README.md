@@ -4,5 +4,5 @@ Static site for https://outbound.asendify.co (Vercel project `outbound`). Rebuil
 
 - `vercel.json`: cleanUrls + trailingSlash.
 - `/app/`: the dashboard front-end (talks to Supabase project pnokotvssodslxozepxe).
-- `/enterprise/`: full-capacity waitlist + £500 refundable deposit (deposit checkout lives at https://playbook.asendify.co/obdeposit).
+- `/enterprise/`: full-capacity waitlist + £600 refundable deposit (deposit checkout lives at https://playbook.asendify.co/obdeposit).
 - `/done-for-you/`: starter package checkout (PayPal via the `dfy` edge function).

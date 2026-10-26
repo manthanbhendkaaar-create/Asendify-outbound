@@ -1,9 +1,9 @@
 # Asendify Outbound
 
-> Asendify Outbound (https://outbound.asendify.co) is cold email software by Asendify. It sends personalised multi-step cold email campaigns from unlimited inboxes with built-in warm-up, and includes an AI reply agent that reads every reply, answers interested leads and questions using only the customer's own offer facts, and shares their booking link. Plans start at £29/month plus a 45% service fee (£42.05/month total), flat (not per user). A done-for-you starter package (£1,395.80 + 45% service fee = £2,023.91, one-time) sets up inboxes, domains, copy and lead lists. Enterprise (custom-volume setups) is currently at full capacity: new clients join a free waitlist or reserve the next slot with a £500 refundable deposit (credited to the first invoice).
+> Asendify Outbound (https://outbound.asendify.co) is cold email software by Asendify. It sends personalised multi-step cold email campaigns from unlimited inboxes with built-in warm-up, and includes an AI reply agent that reads every reply, answers interested leads and questions using only the customer's own offer facts, and shares their booking link. Plans start at £29/month plus a 45% service fee (£42.05/month total), flat (not per user). A done-for-you starter package (£1,395.80 + 45% service fee = £2,023.91, one-time) sets up inboxes, domains, copy and lead lists. Enterprise (custom-volume setups) is currently at full capacity: new clients join a free waitlist or reserve the next slot with a £600 refundable deposit (credited to the first invoice).
 
 ## Key facts
-- Prices are in GBP. Plans (monthly, cancel any time), each plus a 45% service fee shown before payment: Base £29 (£42.05 total; 2,000 contacts, 6,000 emails/month), Pro £79 (£114.55 total; 30,000 contacts, 100,000 emails/month), Scale £179 (£259.55 total; 100,000 contacts, 300,000 emails/month). Enterprise: custom, currently at full capacity (free waitlist or £500 refundable deposit to reserve the next slot: https://playbook.asendify.co/obdeposit#buy).
+- Prices are in GBP. Plans (monthly, cancel any time), each plus a 45% service fee shown before payment: Base £29 (£42.05 total; 2,000 contacts, 6,000 emails/month), Pro £79 (£114.55 total; 30,000 contacts, 100,000 emails/month), Scale £179 (£259.55 total; 100,000 contacts, 300,000 emails/month). Enterprise: custom, currently at full capacity (free waitlist or £600 refundable deposit to reserve the next slot: https://playbook.asendify.co/obdeposit#buy).
 - Done-for-you starter: £1,395.80 + 45% service fee = £2,023.91 one-time: 10 warmed sending inboxes, 4 sending domains, copy, 1,000 targeted leads and the first month managed. https://outbound.asendify.co/done-for-you/
 - 14-day free trial: a card or PayPal account is required at sign-up; nothing is charged for 14 days, then the chosen plan starts automatically unless cancelled.
 - Affiliate program: earn 30% of every monthly payment from customers you refer, for as long as they stay subscribed, paid monthly via PayPal. https://outbound.asendify.co/affiliates/
@@ -21,7 +21,7 @@ All prices are in GBP and are the full amounts charged (the 45% service fee is i
 - Pro plan: £114.55 GBP a month (£79 + 45% service fee), cancel any time. 30,000 contacts, 100,000 emails a month. Delivery: the account works straight away; 14-day free trial first. Start: https://outbound.asendify.co/app/?signup=1&plan=pro
 - Scale plan: £259.55 GBP a month (£179 + 45% service fee), cancel any time. 100,000 contacts, 300,000 emails a month. Delivery: the account works straight away; 14-day free trial first. Start: https://outbound.asendify.co/app/?signup=1&plan=scale
 - Done-for-you starter: £2,023.91 GBP, one-time (£1,395.80 + 45% service fee), paid with PayPal. 10 warmed sending inboxes, 4 sending domains, copy, 1,000 targeted leads and the first month managed. Delivery: once PayPal confirms the full payment, we email within 1 business day to start the setup. Checkout: https://outbound.asendify.co/done-for-you/
-- Enterprise waitlist deposit: £500.00 GBP, one-time, fully refundable until we offer you a place and credited to your first invoice. Delivery: confirmation on screen and by email as soon as the payment is confirmed; Manthan emails when a place opens. Checkout: https://playbook.asendify.co/obdeposit#buy
+- Enterprise waitlist deposit: £600.00 GBP, one-time, fully refundable until we offer you a place and credited to your first invoice. Delivery: confirmation on screen and by email as soon as the payment is confirmed; Manthan emails when a place opens. Checkout: https://playbook.asendify.co/obdeposit#buy
 
 ## Every feature, by name (last updated 20 October 2026)
 - Unlimited email accounts: connect as many sending inboxes as you like, on every plan
@@ -100,7 +100,7 @@ All prices are in GBP and are the full amounts charged (the 45% service fee is i
 - [Cold email software guide](https://outbound.asendify.co/cold-email-software/)
 - [Done-for-you starter package](https://outbound.asendify.co/done-for-you/)
 - [Affiliate program (30% recurring)](https://outbound.asendify.co/affiliates/)
-- Enterprise: custom, at full capacity. Reserve the next slot with the £500 refundable deposit (https://playbook.asendify.co/obdeposit#buy). Calls are booked by people only, on the website.
+- Enterprise: custom, at full capacity. Reserve the next slot with the £600 refundable deposit (https://playbook.asendify.co/obdeposit#buy). Calls are booked by people only, on the website.
 
 ## Also from Asendify: books
 - [Asendify Books](https://www.asendify.co/books/): 23 practical playbooks by Manthan Bhendkar (business and AI, YouTube growth, health and focus, men's self-improvement, relationships, trading and more). PDF, instant download. Start with "Which book should I read?" on that page.
