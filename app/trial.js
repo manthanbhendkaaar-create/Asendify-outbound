@@ -3,9 +3,9 @@
 // it is cancelled in Settings before then.
 (function () {
   var PLANS = [
-    { id: "base", name: "Base", price: "£29", total: "£42.05", info: "6,000 emails / month · 2,000 contacts" },
-    { id: "pro", name: "Pro", price: "£79", total: "£114.55", info: "100,000 emails / month · 30,000 contacts", hot: true },
-    { id: "scale", name: "Scale", price: "£179", total: "£259.55", info: "300,000 emails / month · 100,000 contacts" },
+    { id: "base", name: "Base", price: "£40.60", total: "£58.87", info: "6,000 emails / month · 2,000 contacts" },
+    { id: "pro", name: "Pro", price: "£110.60", total: "£160.37", info: "100,000 emails / month · 30,000 contacts", hot: true },
+    { id: "scale", name: "Scale", price: "£250.60", total: "£363.37", info: "300,000 emails / month · 100,000 contacts" },
   ];
   var sub = document.getElementById("authSub");
   function fixSub() { if (sub && /no card needed/i.test(sub.textContent)) sub.textContent = "14 days free. Add a card or PayPal to start; nothing is charged for 14 days."; }

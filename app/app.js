@@ -384,8 +384,8 @@ async function viewSettings() {
   <div class="panel"><h3>Plan</h3><p class="small">${planLine()}</p>
   ${WS.paypal_subscription_id && WS.billing_status !== "CANCELLED" && ["base", "pro", "scale"].includes(WS.plan) ? `<p class="small" style="margin-top:6px">Billed monthly through PayPal. <a href="#" id="bCancel" style="color:var(--bad)">Cancel subscription</a></p>` : ""}
   <div class="prices" style="margin-top:14px">${(plans || []).map((p) => `<div class="price${p.id === "pro" ? " hot" : ""}"><div class="name">${p.name}</div>
-  <div class="amt" style="font-size:30px">${p.price_usd ? "$" + p.price_usd + "<small>/month</small>" : "Custom"}</div>
-  <ul>${p.contacts_limit ? `<li>${p.contacts_limit.toLocaleString()} contacts</li><li>${p.emails_month_limit.toLocaleString()} emails / month</li>` : "<li>Custom volumes</li><li>Done-for-you setup</li>"}</ul>
+  <div class="amt" style="font-size:30px">${p.price_usd ? "$" + Number(p.price_usd).toFixed(2) + "<small>/month</small>" : "Custom"}</div>
+  <ul>${p.contacts_limit ? `<li>${p.contacts_limit.toLocaleString()} contacts</li><li>${p.emails_month_limit.toLocaleString()} emails / month</li>` : "<li>Custom volumes</li><li>Setup by our team</li>"}</ul>
   ${p.id === "enterprise" ? `<a class="btn btn-ghost" href="/enterprise/?plan=enterprise&ws=${WS.id}">Book a call</a>`
     : WS.plan === p.id && WS.billing_status !== "CANCELLED" ? `<span class="btn btn-ghost" style="cursor:default">Current plan</span>`
     : `<button class="paybtn btn ${p.id === "pro" ? "btn-primary" : "btn-ghost alt"}" data-sub="${p.id}">Choose ${p.name}</button>`}</div>`).join("")}</div>

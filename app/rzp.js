@@ -2,7 +2,7 @@
 // 2026-10-14: Razorpay Subscriptions is off on our account, so ₹ plans now use a one-time bank mandate (eMandate) that we
 // debit each month. Used by the free-trial screen (trial.js) and Settings (app.js). Server side: Supabase function "rzpmandate".
 (function () {
-  window.AO_INR = { base: 5376, pro: 14644, scale: 33181 };   // per month, incl. the 45% service fee
+  window.AO_INR = { base: 7526, pro: 20502, scale: 46453 };   // per month, incl. the 45% service fee (2026-10-30: x1.4)
   window.inr = function (n) { return "₹" + Number(n).toLocaleString("en-IN"); };
 
   async function call(action, body) {
