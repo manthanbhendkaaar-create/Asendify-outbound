@@ -88,3 +88,7 @@ button.btn:not(.btn-primary):not(.btn-ghost){background-color:#15130e;color:var(
 /* 2026-10-25: the red "Start free trial" in the Enterprise header stays on one line on phones */
 header.top .btn.btn-red-shine{white-space:nowrap}
 @media (max-width:480px){header.top .btn.btn-red-shine{padding:9px 14px;font-size:14px}}
+
+/* phones: comparison tables scroll sideways inside their box instead of widening the page */
+@media (max-width:700px){table.cmp{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:13px;white-space:nowrap}table.cmp th,table.cmp td{padding:10px 12px}}
+html,body{overflow-x:clip}
