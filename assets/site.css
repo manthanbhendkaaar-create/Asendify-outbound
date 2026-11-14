@@ -92,3 +92,5 @@ header.top .btn.btn-red-shine{white-space:nowrap}
 /* phones: comparison tables scroll sideways inside their box instead of widening the page */
 @media (max-width:700px){table.cmp{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:13px;white-space:nowrap}table.cmp th,table.cmp td{padding:10px 12px}}
 html,body{overflow-x:clip}
+/* 2026-11-14 phones: header trial button never covers the brand name */
+@media (max-width:480px){header.top .wrap{gap:10px}header.top .links .btn.btn-primary{white-space:nowrap;padding:9px 12px;font-size:13px}header.top .brand{min-width:0;flex-shrink:1;font-size:16px}}
